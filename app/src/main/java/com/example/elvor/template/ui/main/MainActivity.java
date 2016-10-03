@@ -9,6 +9,11 @@ import android.widget.Toast;
 
 import com.example.elvor.template.R;
 import com.example.elvor.template.ui.base.BaseActivity;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -22,6 +27,8 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.sample_text)
     protected TextView sampleText;
 
+
+
     @Override
     protected int getLayoutId() {
         //в XML файле описание всех вьюх активити
@@ -32,8 +39,8 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //обычно текст прописывается в XML, но иногда нужнор сделать это динамически
-        sampleText.setText("azaza");
+        //обычно текст прописывается в XML, но иногда нужно сделать это динамически
+        sampleText.setText(R.string.app_name);
         // закомменти и увидишь надпись из strings.xml
 
         //так себе способ назначить действие для кнопки, раскомменть и попробуй (не забудь закомментить OnClick ниже)
@@ -46,12 +53,14 @@ public class MainActivity extends BaseActivity {
         });*/
 
 
-    // Example of a call to a native method
+        // Example of a call to a native method
    /* TextView tv = (TextView) findViewById(R.id.sample_text);
     tv.setText(stringFromJNI());*/
 
 
     }
+
+
 
     //православный способ, однако, не работает, если нужно поменять действие в коде
     @OnClick(R.id.button)

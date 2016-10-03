@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.elvor.template.backend.Api;
 import com.example.elvor.template.dagger.Injector;
 import com.google.gson.Gson;
 import com.squareup.otto.Bus;
@@ -25,6 +26,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Inject
     protected Glide glide;
+
+    @Inject
+    protected Api api;
 
     private Unbinder unbinder;
 
