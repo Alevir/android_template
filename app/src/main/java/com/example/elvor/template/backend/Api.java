@@ -12,7 +12,7 @@ public class Api {
     Retrofit rest;
 
     public Api(final Firebase firebase) {
-        firebase.child("apiEndpoint").addListenerForSingleValueEvent(new ValueEventListener() {
+        firebase.child("config").child("apiEndpoint").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 rest = new Retrofit.Builder().baseUrl(dataSnapshot.getValue().toString()).build();
